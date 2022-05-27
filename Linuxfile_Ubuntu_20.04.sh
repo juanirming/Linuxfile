@@ -63,9 +63,9 @@ pip install requests
 #pip install boto3
 
 ################################################################################
-# Append .profile
+# Append .bashrc
 
-cat <<'EOT' >> ~/.profile
+cat <<'EOT' >> ~/.bashrc
 
 # Show git branch in bash prompt
 parse_git_branch() {
@@ -86,6 +86,14 @@ function wi() {
     elinks "https://en.wikipedia.org/wiki/$*"
 }
 export -f wi
+
+PYTHONPATH="$HOME/nvok/scripts/lib";export PYTHONPATH
+EOT
+
+################################################################################
+# Append .profile
+
+cat <<'EOT' >> ~/.profile
 
 # WSL
 #cd $HOME

@@ -7,7 +7,7 @@ Installs and configures the necessities on a fresh Linux instance. You may have 
 - python and vim packages
 
 ### Configures (non-exhaustive)
-- .profile, .bash_aliases, .screenrc, .vimrc
+- .bashrc, .profile, .bash_aliases, .screenrc, .vimrc
 
 See source code for details and tweak to your preference.
 
