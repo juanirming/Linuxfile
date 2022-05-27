@@ -362,6 +362,10 @@ mkdir -p ~/.vim/pack/dist/start/vim-airline
 git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
 vim -u NONE -c "helptags ~/.vim/pack/dist/start/vim-airline/doc" -c q
 
+mkdir -p ~/.vim/pack/dist/start/vim-airline-themes
+git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/pack/dist/start/vim-airline-themes
+vim -u NONE -c "helptags ~/.vim/pack/dist/start/vim-airline-themes/doc" -c q
+
 # Fugitive
 mkdir -p ~/.vim/pack/tpope/start
 git clone https://tpope.io/vim/fugitive.git ~/.vim/pack/tpope/start
