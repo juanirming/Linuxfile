@@ -8,10 +8,6 @@
 #
 # Run on fresh Ubuntu instance to install and configure the necessities.
 
-script_name='Linuxfile_Ubuntu_20.04'
-begin_tag="##### BEGIN $script_name #####"
-end_tag="##### END $script_name #####"
-
 cd ~
 
 ################################################################################
@@ -69,9 +65,8 @@ pip install boto3
 ################################################################################
 # Append .profile
 
-cat <<EOT >> ~/.profile
+cat <<'EOT' >> ~/.profile
 
-$begin_tag
 # Show git branch in bash prompt
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -81,31 +76,29 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 # Enable command line Google search
 function se() {
     IFS='+'
-    elinks "https://www.startpage.com/do/search?query=\$*"
+    elinks "https://www.startpage.com/do/search?query=$*"
 }
 export -f se
 
 # Enable command line Wikipedia search
 function wi() {
     IFS='_'
-    elinks "https://en.wikipedia.org/wiki/\$*"
+    elinks "https://en.wikipedia.org/wiki/$*"
 }
 export -f wi
 
 # WSL
-#cd \$HOME
+#cd $HOME
 
 # Automatically create/re-attach screen session (useful for remote hosts)
 screen -DRAS main
-$end_tag
 EOT
 
 ################################################################################
 # Append .bash_aliases
 
-cat <<EOT >> ~/.bash_aliases
+cat <<'EOT' >> ~/.bash_aliases
 
-$begin_tag
 alias os='lsb_release -a'
 
 alias s='screen -DRAS main'
@@ -127,23 +120,21 @@ alias dtop='watch -n 1 docker ps'
 
 # Get sh on running Docker container
 function dsh {
-        docker exec -it "\$1" /bin/sh
+        docker exec -it "$1" /bin/sh
 }
 export -f dsh
 
 # Get bash on running Docker container
 function dbash {
-        docker exec -it "\$1" /bin/bash
+        docker exec -it "$1" /bin/bash
 }
 export -f dbash
-$end_tag
 EOT
 
 ################################################################################
 # OVERWRITE .screenrc
 
-cat <<EOT > ~/.screenrc
-$begin_tag
+cat <<'EOT' > ~/.screenrc
 msgwait 0
 
 term xterm-256color
@@ -154,14 +145,12 @@ hardstatus alwayslastline
 shelltitle 'bash'
 
 hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
-$end_tag
 EOT
 
 ################################################################################
 # OVERWRITE .vimrc
 
-cat <<EOT > ~/.vimrc
-" $begin_tag
+cat <<'EOT' > ~/.vimrc
 set nowrap
 set number
 set ruler
@@ -185,7 +174,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let NERDTreeShowHidden=1
-" $end_tag
 EOT
 
 ################################################################################
@@ -193,7 +181,7 @@ EOT
 
 mkdir -p ~/.config/mc
 
-cat <<EOT > ~/.config/mc/ini
+cat <<'EOT' > ~/.config/mc/ini
 [Midnight-Commander]
 verbose=true
 shell_patterns=true
@@ -381,4 +369,3 @@ chmod 700 ~/nvok/nvok
 
 # WSL
 #sudo /etc/init.d/screen-cleanup start
-
