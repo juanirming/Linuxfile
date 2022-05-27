@@ -132,6 +132,13 @@ export -f dbash
 EOT
 
 ################################################################################
+# Append .config/ranger/rc.conf
+
+cat <<'EOT' >> ~/.config/ranger/rc.conf
+set show_hidden true
+EOT
+
+################################################################################
 # OVERWRITE .screenrc
 
 cat <<'EOT' > ~/.screenrc
