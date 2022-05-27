@@ -60,7 +60,7 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 # Install Python packages
 
 pip install requests
-pip install boto3
+#pip install boto3
 
 ################################################################################
 # Append .profile
