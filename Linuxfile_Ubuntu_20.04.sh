@@ -140,9 +140,11 @@ export -f dbash
 EOT
 
 ################################################################################
-# Append .config/ranger/rc.conf
+# OVERWRITE .config/ranger/rc.conf
 
-cat <<'EOT' >> ~/.config/ranger/rc.conf
+mkdir -p ~/.config/ranger
+
+cat <<'EOT' > ~/.config/ranger/rc.conf
 set show_hidden true
 EOT
 
