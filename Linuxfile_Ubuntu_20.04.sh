@@ -2,7 +2,7 @@
 
 ################################################################################
 # Linuxfile_Ubuntu_20.04.sh
-# Updated 2022-05-26
+# Updated 2022-05-31
 #
 # Juan Irming
 #
@@ -390,3 +390,6 @@ chmod 700 ~/nvok/nvok
 
 # WSL
 #sudo /etc/init.d/screen-cleanup start
+
+# Symlink to Windows home directory from WSL home directory
+#ln -s /mnt/c/Users/WINDOWS_USERNAME ~/win
